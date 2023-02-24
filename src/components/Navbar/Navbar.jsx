@@ -5,6 +5,8 @@ import { BsPerson, BsHeartFill } from "react-icons/bs";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { BiCategoryAlt } from "react-icons/bi";
 
+import { Link } from "react-router-dom";
+
 function Navbar() {
   const [nav, setNav] = useState(false);
   const [category, setCategory] = useState(false);
@@ -16,24 +18,23 @@ function Navbar() {
     setCategory(!category);
   }
   return (
-    <div className="flex justify-between fixed w-full h-[80px] bg-[#362e2e] py-6 text-gray-300 text-lg p-2">
+    <div className="flex justify-between fixed w-full h-[80px]  bg-[#362e2e] py-6 text-gray-300 text-lg p-2 ">
       <div>
         <ul className="hidden md:flex ">
-          <li className="px-2">euro</li>
-          <li className="px-2">usd</li>
           <li className="px-2">Men</li>
           <li className="px-2">Women</li>
-          <li className="px-2">Diverse</li>
-          <li className="px-2">Accessories</li>
+          <li className="px-2">Unisex</li>
+          <li className="px-2"><Link to="category">Category</Link></li>
         </ul>
       </div>
-      <div className="tracking-widest uppercase">store</div>
+
+      <nav className="tracking-widest uppercase">
+        <Link to="/store">Store </Link></nav>
       <div className="hidden md:flex ">
         <ul className="flex ">
-          <li className="px-2">Homepage</li>
+          <li className="px-2"><Link to="/">Homepage</Link></li>
           <li className="px-2">About</li>
           <li className="px-2">Contact</li>
-          <li className="px-2">Stores</li>
           <li className="px-2 py-2">
             <FiSearch />
           </li>
@@ -69,8 +70,8 @@ function Navbar() {
       >
         <li className="py-6 text-4xl">Men</li>
         <li className="py-6 text-4xl">Women</li>
-        <li className="py-6 text-4xl">Diverse</li>
-        <li className="py-6 text-4xl">Accessories</li>
+        <li className="py-6 text-4xl">Unisex</li>
+        <li className="px-2"><Link to="category">Category</Link></li>
       </ul>
 
       {/* ===>>>>> Navigation Right */}
@@ -93,7 +94,7 @@ function Navbar() {
         <li className="py-6 text-4xl">Home</li>
         <li className="py-6 text-4xl">About</li>
         <li className="py-6 text-4xl">Contact</li>
-        <li className="py-6 text-4xl">Stores</li>
+  
       </ul>
     </div>
   );

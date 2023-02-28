@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { FiSearch } from "react-icons/fi";
-import { SlBasket } from "react-icons/sl";
-import { BsPerson, BsHeartFill } from "react-icons/bs";
+// import { SlBasket } from "react-icons/sl";
+// import { BsPerson, BsHeartFill } from "react-icons/bs";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { BiCategoryAlt } from "react-icons/bi";
 
+import CartIcon from "../cart-icon/CartIcon";
+import CartDropdown from "../cart-dropdown/CartDropdown";
+
 import { Link } from "react-router-dom";
+import {CartContext} from "../../context/cart.context"
 
 function Navbar() {
   const [nav, setNav] = useState(false);
   const [category, setCategory] = useState(false);
+  const {isCartOpen}=useContext(CartContext)
 
   function handleClick() {
     setNav(!nav);
@@ -18,7 +23,7 @@ function Navbar() {
     setCategory(!category);
   }
   return (
-    <div className="flex justify-between fixed w-full h-[80px]  bg-[#362e2e] py-6 text-gray-300 text-lg p-2 ">
+    <div className="flex justify-between fixed w-full h-[100px]  bg-[#1d1c18] p-8 text-gray-300 text-lg p-2 z-10 ">
       <div>
         <ul className="hidden md:flex ">
           <li className="px-2">Men</li>
@@ -38,16 +43,19 @@ function Navbar() {
           <li className="px-2 py-2">
             <FiSearch />
           </li>
-          <li className="px-2 py-2">
+          {/* <li className="px-2 py-2">
             <BsPerson />
           </li>
           <li className="px-2 py-2">
             <BsHeartFill />
-          </li>
-          <li className="px-2 py-2">
-            <SlBasket />
+          </li> */}
+          <li className="">
+         {/* <SlBasket/> */}
+          <CartIcon/>
           </li>
         </ul>
+         {isCartOpen && <CartDropdown />} 
+      
       </div>
       {/* =========== >>>>  Navigation Left <<<< =========== */}
       <div

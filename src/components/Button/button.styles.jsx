@@ -10,7 +10,6 @@ export const BaseButton = styled.button`
   font-size: 15px;
   background-color: black;
   color: white;
-  text-transform: uppercase;
   font-family: 'Open Sans Condensed';
   font-weight: bolder;
   border: none;
